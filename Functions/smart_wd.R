@@ -13,5 +13,5 @@
   }
 
 
-smart_wd(repo = "R4Eco_2022", folder = "Startup")
+smart_wd(repo = "R4Eco_2022", folder = "Week1")
 
