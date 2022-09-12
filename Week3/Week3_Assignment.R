@@ -1,11 +1,11 @@
-# (1) Approximately how many hours ahead of Sunbury was the peak flow in Lewisburg during the 2011 flood? (1 pt)
+# (1) Approximately how many hours ahead of Sunbury was the peak flow in Lewisburg during the 2011 flood? (2 pt)
   
 
 
-# (2) Give one reason why information on the time between peak flow events up- and downstream could be valuable information? (3 pts)
+# (2) Give one reason why information on the time between peak flow events up- and downstream could be valuable? (4 pts)
 
 
-# Package scavenger hunt! (8 pts each)
+# Package scavenger hunt! (12 pts each)
 
 ## (3) Using Google and ONLY packages from GitHub or CRAN:
     # Find a package that contains at least one function specifically designed to measure genetic drift.
