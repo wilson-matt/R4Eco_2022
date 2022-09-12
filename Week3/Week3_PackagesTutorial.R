@@ -36,14 +36,14 @@ library(ggplot2)
   # Notice now that ggplot2 is no longer in quotations for the library() function. 
     # Once installed, R recognizes it and it becomes an object instead of a text string.
 # Every package also has a reference manual, typically on the CRAN website.
-# The ggplo2 reference manual can be found here: https://cran.r-project.org/web/packages/ggplot2/ggplot2.pdf
+# The ggplot2 reference manual can be found here: https://cran.r-project.org/web/packages/ggplot2/ggplot2.pdf
 
 # From the reference manual you can find the basic plotting function is ggplot():
 # Let's try replotting last week's data with ggplot():
 ggplot(df1, aes(x=uniqu.num, y=dec.num))
     # SO...where are the data???
     # Unlike base R plotting, ggplot requires EVERYTHING to be specified.
-    # Let's try again by adding the points, litterally with a +:
+    # Let's try again by adding the points, literally with a "+" symbol:
 ggplot(df1, aes(x=uniqu.num, y=dec.num)) +
   geom_point(size=2, shape=23)
     # Great! Now we have points.
@@ -156,9 +156,9 @@ library(dataRetrieval)
 # The function we need from this package for pulling flow data is called readNWISuv():
     # NWIS stands for National Water Information System
 ?readNWISuv
- # From this, you can see the function collects data based on the USGS coes for location and date type based on a date range.
+ # From this, you can see the function collects data based on the USGS codes for location and date type based on a date range.
 #We will look at the 2011 flood on the Susquehanna River in Sunbury compared to several months before and after the flood:
-    # The site code for Sunbury is "01554000".
+    # The site code for Sunbury is "01554000". You can find this by looking up USGS flow gages online.
     # This line could take a minute or two depending on your internet connection speed. 
 sunbury_flow <- readNWISuv("01554000","00060","2011-01-01","2013-10-10")
 #This is a very large file, let's use head() to look at the format:
@@ -178,7 +178,7 @@ flowchart <- gvisAnnotationChart(sunbury_flow, datevar="dateTime",
 plot(flowchart)
   # Notice how much longer it takes for this chart to load? And the interactive parts are glitchy?
   # This is A LOT of data compared to the original plot. It's too much for the function to handle effectively.
-  # We could create some daily summaries to decrease the resolution of data but keep the same timeframe.
+  # We could create some daily summaries to decrease the resolution of data but keep the same time frame.
   # Since we are really interested in the flood, let's just narrow the time range instead.
 
 # Notice all I have changed is the date range in the readNWISuv() function:
@@ -207,13 +207,13 @@ plot(flowchart)
 
 # Remember the example plot had two data sources - pens and pencils?
   # Let's see how the river in Sunbury compared to a location upstream, like Lewisburg.
-# First we need to grab the Lewisburg flow over exactly the same timeframe:
+# First we need to grab the Lewisburg flow over exactly the same time frame:
 lewisburg_flow <- readNWISuv("01553500","00060","2011-09-06","2011-09-15")
 
 #Then we can use rbind to create a single data frame with both sites:
 flow_both <- rbind(sunbury_flow,lewisburg_flow)
 
-#Now we will add back in an argument from the example function - "idvar" will allow us to specify mutiple locations based on the site number:
+#Now we will add back in an argument from the example function - "idvar" (short for ID variable) will allow us to specify multiple locations based on the site number:
 flowchart <- gvisAnnotationChart(flow_both, datevar="dateTime",
                                  numvar="X_00060_00000", idvar="site_no",
                                  options=list(displayAnnotations=FALSE,
@@ -232,7 +232,7 @@ plot(flowchart)
 flow_3 <- readNWISuv(c("01553500","01554000", "01552000"),"00060","2011-09-06","2011-09-15")
 
 
-#Now we will add back in an argument from the example function - "idvar" will allow us to specify mutiple locations based on the site number:
+#Now we will plot three sites at once. Any guess where the new location is? (You can Google the number to find out)
 flowchart <- gvisAnnotationChart(flow_3, datevar="dateTime",
                                  numvar="X_00060_00000", idvar="site_no",
                                  options=list(displayAnnotations=FALSE,
@@ -240,9 +240,6 @@ flowchart <- gvisAnnotationChart(flow_3, datevar="dateTime",
                                               width="900px", height="400px")
 )
 plot(flowchart)
-
-
-
 
 
 
