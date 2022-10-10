@@ -229,8 +229,8 @@ compLV(n01=10, n02=10,r1=0.01, r2=0.03, k1=80, k2=50, alfa=1.2, beta=0.5, tmax=1
   # We can see this time that sp1 still eventually wins, but the process occurs on a much longer time scale.
 
 
-# Adjusting these parameters to model natural paterns is one way to begin generating questions,
-  # and thing through potetential mechanisms, surrounding dynamics of real populations.
+# Adjusting these parameters to model natural patterns is one way to begin generating questions,
+  # and thing through potential mechanisms, surrounding dynamics of real populations.
 
 # In this week's assignment you use trial and error to identify potential causes of a predator-prey relationship
   # from real plankton population data.
