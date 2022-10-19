@@ -228,8 +228,8 @@ rarefaction(BCI, subsample=50, plot=TRUE, color=TRUE, error=FALSE,  legend=TRUE,
 #This requires a quick reformatting of our data.
   # In the following line:
     # BCI is being transposed so that each row is a species. 
-    # The roSums() creates a single vector of the total individuals found from each species across all species.
-    # But because species need to be columnes we then transpose the data back, and make sure it is read as.data.frame()
+    # The rowSums() creates a single vector of the total individuals found from each species across all species.
+    # But because species need to be columns we then transpose the data back, and make sure it is read as.data.frame()
 
 samples <- as.data.frame(t(rowSums(t(BCI))))
 
@@ -239,7 +239,7 @@ rarefaction(samples, subsample=500, plot=TRUE, color=TRUE, error=FALSE,  legend=
     # 2 - the curve also appears much steeper.
   # While the curve really is steeper the difference is not quite as dramatic as it appears, consider the much larger range of the x-axis.
 
-#By collecting samples of 500 organisms, it looks like we will collevt the majority of species after 3 samples,
+#By collecting samples of 500 organisms, it looks like we will collect the majority of species after 3 samples,
   # But what if the goals is 90% or 95%? This curve has not flattened at the top.
   # This becomes a harder question the higher the percent of the community to want to effectively sample,
     # And the higher the investment per each new species found.
