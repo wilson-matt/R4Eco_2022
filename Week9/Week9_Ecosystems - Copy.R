@@ -24,7 +24,11 @@ veg <- as.data.frame(veg.tibble)
 
 veg.abiotic <- merge(abiotic, veg, by = "Parcel", all = TRUE)
 
+?aggregate
 
+ab.means <- aggregate( x = abiotic, by = list(abiotic$Parcel), FUN = "mean")
+
+many2one <- merge(ab.means, veg, by.x= "Group.1", by.y = "Parcel", all = FALSE)
 
 
 #Unfortunately, the read_excel function transforms our data into a "tibble" format
