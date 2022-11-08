@@ -19,13 +19,18 @@ image_darknet_detect(file = "C:/GitHub/R4Eco_2022/Week11/BearSalmon2.jpg",
                      object = yolo_tiny_voc)
 
 image_darknet_detect(file = "C:/GitHub/R4Eco_2022/Week11/BearSalmon.jpg",
-                     object = yolo_tiny_voc)
+                     object = yolo_tiny_voc,
+                     threshold = .05)
 
 image_darknet_detect(file = "C:/GitHub/R4Eco_2022/Week11/Bird.jpg",
                      object = yolo_tiny_voc)
 
 image_darknet_detect(file = "C:/GitHub/R4Eco_2022/Week11/Urban.jpg",
                      object = yolo_tiny_voc)
+
+image_darknet_detect(file = "C:/GitHub/R4Eco_2022/Week11/WTF.jpg",
+                     object = yolo_tiny_voc)
+
 
 #Lowering the threshold for confidence in detection:
 image_darknet_detect(file = "C:/GitHub/R4Eco_2022/Week11/Urban.jpg",
@@ -39,5 +44,5 @@ tiny_model <- image_darknet_model(type = "classify",
                                   model = "tiny.cfg",
                                   weights = system.file(package = "image.darknet", "models", "tiny.weights"),
                                   labels = system.file(package = "image.darknet", "include", "darknet", "data", "imagenet.shortnames.list"))
-image_darknet_classify(file = "C:/GitHub/R4Eco_2022/Week11/BearSalmon2.jpg",
+image_darknet_classify(file = "C:/GitHub/R4Eco_2022/Week11/BearSalmon.jpg",
                        object = tiny_model)
